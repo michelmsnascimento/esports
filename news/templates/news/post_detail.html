@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Post Detail</title>
 </head>
 <body>
-    <h2> {{posts.titulo}} </h2>
-    <h3> {{posts.subtitulo}} </h3>
-    <h3> {{posts.autor}} </h3>
-    <br />
+    <h1>{{ posts.titulo }}</h1>
+    <h3>{{ posts.subtitulo }} - {{ posts.autor }} </h3>
 
-    <p> {{posts.conteudo|safe}} </p>
+    <p>
+        {{ posts.conteudo|safe }}
+    </p>
+
 </body>
 </html>
