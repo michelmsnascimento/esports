@@ -1,7 +1,604 @@
-.img-350 {
-    height:350px;
+html,
+body,
+ul,
+li,
+p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-family: 'Roboto', sans-serif;
 }
-.avatar {
-    width:100px;
-    height:100px;
- }
+
+:root {
+  /*Neutro*/
+  --brand-color: hsl(151, 100%, 50%);
+  --brand-color-dark: hsla(151, 100%, 40%, 1);
+  --white: hsl(0, 0%, 100%);
+  --white-dark: hsl(0, 6%, 93%);
+  --black: hsl(0, 0%, 0%);
+
+  /*Dark mode*/
+  --grey-dark: hsl(0, 0%, 5%, 100%);
+  --grey-light: hsl(0, 0%, 8%, 100%);
+
+  /*Light mode*/
+  --background-white: hsl(0, 1%, 84%);
+
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  background: var(--grey-light);
+}
+
+a {
+  text-decoration: none;
+  color: var(--white-dark);
+}
+
+.header {
+  background: var(--black);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 2rem 5rem;
+}
+
+.header .logo img {
+  width: 8rem;
+  height: 5.4rem;
+  margin-right: 2rem;
+}
+
+.search-box {
+  background-color: var(--white-dark);
+  height: 1rem;
+  width: 57rem;
+  padding: 10px;
+  border-radius: 40px;
+  margin-left: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.long-search {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.search-text {
+  background: none;
+  border: 0;
+  outline: 0;
+  font-size: 1.6rem;
+}
+
+#menu {
+  display: flex;
+  align-items: center;
+  margin-left: 1.0rem;
+  font-size: 2rem;
+}
+
+#menu li {
+  margin-left: 4.0rem;
+}
+
+#menu li a {
+  display: block;
+  color: var(--brand-color-dark);
+}
+
+#menu li a:hover {
+  color: var(--brand-color);
+}
+
+#menu button {
+  display: block;
+  background: var(--brand-color);
+  border-radius: 20px;
+  width: 100px;
+  height: 35px;
+  font-size: 2.0rem;
+  margin-left: 5.0rem;
+  border: none;
+}
+
+#menu-games {
+  background: var(--grey-dark);
+  height: 85px;
+}
+
+#items {
+  display: flex;
+  padding: 1rem 5rem;
+  align-items: center;
+  justify-content: space-between;
+  overflow-x: auto;
+}
+
+.item1 {
+  flex: none;
+  padding-right: 5rem;
+}
+
+.item6 {
+  flex: none;
+  padding-left: 5rem;
+}
+
+.item2,  .item3, .item4, .item5 {
+  flex: none;
+  padding: 0 5rem;
+}
+
+#btn-mobile {
+  display: none;
+}
+
+#items::-webkit-scrollbar {
+  display: none;
+  }
+
+.feed {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 5rem 4rem;
+}
+  
+.feed > div {
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--black);
+  max-width: 40rem;
+  margin: 0 1rem 3rem 1rem;
+  grid-gap: 20px;
+}
+
+.feed img {
+  width: 100%;
+  height: 18.4rem; 
+  object-fit:cover;
+  object-position: 50%;
+}
+
+.feed .game-name {
+  font-size: 1.6rem;
+  font-weight: 100;
+}
+
+.feed .title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.feed .description {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.feed .date-author {
+  background: var(--grey-dark);
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  font-weight: 100;
+}
+
+.feed .like-comment img {
+  height: 1.8rem;
+  width: 1.8rem;
+}
+
+.feed .like-comment {
+  display: flex;
+}
+
+.feed .like {
+  padding: 0 1rem;
+}
+
+
+.feed .game-name, .title, .description, .date-author, .like, .comment {
+  padding: 0 1rem;
+}
+
+.footer {
+  display: flex;
+  background: var(--black);
+  min-height: 33.4rem;
+  padding: 3rem 13rem 3rem 13rem;
+  justify-content: center;
+}
+
+.copyright {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+.copyright img {
+  width: 12rem;
+  height: 8.1rem;
+  padding-bottom: 3rem;
+}
+
+.copyright a {
+  font-size: 1.6rem;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.footer-links .eSports {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-left: 8rem;
+  font-size: 1.8rem;
+}
+
+.footer-links .championship {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-left: 8rem;
+  font-size: 1.8rem;
+}
+
+
+/******** Small Devices ********/
+
+@media (max-width: 896px) {
+  .header {
+    height: 50px;
+  }
+
+  .header img {
+    width: 7rem;
+    height: 5.0rem;
+  }
+
+  .search-box {
+    margin: 0 8rem;
+  }
+
+  .long-search {
+    max-height: 1.5rem;
+    max-width: 1.5rem;
+  }
+  
+  #menu {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    height: 300rem;
+    top: 10rem;
+    padding-bottom: 2rem;
+    right: 0;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-evenly;
+    background: var(--grey-dark);
+    transition: .4s;
+    visibility: hidden;
+    overflow-y: hidden;
+  }
+
+  #nav.active #menu{
+    transition: .8s;
+    width: 100vw;
+    height: 81vh;
+    position: fixed;
+    top: 10rem;
+    left: -15px;
+    z-index: 2000;
+    /*height: calc(100vh - 200px);*/
+    visibility: visible;
+    overflow-y: auto;
+  }
+
+  #menu button {
+    margin: 0.2rem .5rem 0 0;
+  }
+
+  #btn-mobile {
+    display: flex;
+    padding: .5rem 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: .5rem;
+  }
+
+  #hamburguer {
+    border-top: .2rem solid var(--brand-color);
+    width: 2rem;
+  }
+
+  #hamburguer::before {
+    content: '';
+    display: flex;
+    width: 2rem;
+    height: .2rem;
+    margin-top: .5rem;
+    background: var(--brand-color);
+    transition: .3s;
+    position: relative;
+  }
+
+  #hamburguer::after {
+    content: '';
+    display: flex;
+    width: 2rem;
+    height: .2rem;
+    margin-top: .5rem;
+    background: var(--brand-color);
+    transform: .3s;
+    position: relative;
+  }
+
+  #nav.active #hamburguer {
+    border-top-color: transparent;
+  }
+
+  #nav.active #hamburguer::before {
+    transform: rotate(135deg);
+  }
+
+  #nav.active #hamburguer::after {
+    transform: rotate(-135deg);
+    top: -0.7rem;
+  }
+  
+  #items {
+    padding: 1rem 5rem;
+  }
+  
+  .item1 {
+    padding-right: 3rem;
+  }
+  
+  .item6 {
+    padding-left: 3rem;
+  }
+  
+  .item2,  .item3, .item4, .item5 {
+    padding: 0 3rem;
+  }
+
+  .feed {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+
+  .feed > div {
+    max-width: 60rem;
+    max-height: 120rem;
+  }
+
+  .feed img {
+    height: 19rem;
+  }
+
+  footer.footer {
+    display: grid;
+    padding: 3rem 1rem 0 1rem;
+  }
+
+  .footer .copyright {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-items: left;
+    align-content: center;
+    padding: 4rem 2rem;
+  }
+  
+  .footer .copyright img {
+    width: 10rem;
+    height: 6rem;
+    padding: 0;
+  }
+
+  .footer .copyright a {
+    font-weight: 100;
+    font-size: 1.4rem;
+  }
+
+  .footer .footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    order: -1;
+  }
+  
+  .footer .eSports {
+    display: grid;
+    grid-template-columns: 1fr;
+    font-size: 1.6rem;
+    padding: 0;
+    padding-right: 1rem;
+  }
+  
+  .footer .championship {
+    display: grid;
+    grid-template-columns: 1fr;
+    font-size: 1.6rem;
+    padding: 0;
+  }
+
+  .footer .eSports, .championship a{
+    padding-top: 1rem;
+  }
+}
+
+/******** Mobile ********/
+
+@media (max-width: 600px) {
+  .header {
+    padding: 2rem 3rem;
+  }
+  
+  .search-box {
+    background: var(--brand-color);
+    width: 2rem;
+    transition: 0.4s;
+  }
+
+  .search-text {
+    width: 0;
+    margin: 0;
+    padding: 0;
+    transition: 0.4s;
+  }
+
+  .long-search {
+    max-height: 2rem;
+    max-width: 2rem;
+  }
+
+  .search-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    transition: 0.4s;
+  }
+
+  .search-box:hover > .search-text {
+    width: 18rem;
+  }
+
+  .search-box:hover {
+    width: 18rem;
+    margin: 0;
+    background: var(--white);
+  }
+
+  .search-box:hover > .search-btn {
+    display: none;
+  }
+
+  #items {
+    padding: 1rem 3rem;
+  }
+
+  .feed {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding: 2rem;
+  }
+
+  .feed > div {
+    max-width: 41.8rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
+/*****AJUSTES****/
+
+/*** Ajustando o footer e feed para telas bem pequenas ***/
+
+@media (max-width: 375px) {
+  .feed > div {
+    width: 33rem;
+  }
+
+  .footer .copyright img {
+    width: 9rem;
+    height: 5rem;
+  }
+
+  .footer .copyright a {
+    font-size: 1.2rem;
+  }
+}
+
+/***** Ajustando o header *****/
+@media (max-width: 950px) {
+  #menu li {
+    margin-left: 2.0rem;
+  }
+
+  #menu button {
+    display: block;
+    background: var(--brand-color);
+    border-radius: 20px;
+    width: 100px;
+    height: 35px;
+    font-size: 2.0rem;
+    margin-left: 3.0rem;
+    border: none;
+  }
+}
+
+/***** Ajustando o footer *****/
+
+@media (max-width: 1150px) {
+  .footer {
+    padding: 3rem 5rem 0 5rem;
+  }
+
+  .copyright a {
+    font-size: 1.6rem;
+  }
+  
+  .eSports {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-left: 8rem;
+    font-size: 1.8rem;
+  }
+  
+  .championship {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-left: 8rem;
+    font-size: 1.8rem;
+  }
+}
+
+
+/***** LIGHT MODE *****
+
+body {
+  background: var(--background-white);
+}
+
+a {
+  color: var(--black);
+}
+
+.header {
+  background: var(--grey-dark);
+}
+
+#menu-games {
+  background: var(--grey-light);
+}
+
+nav.active #menu {
+  background: var(--grey-light);
+}
+
+.feed > div {
+  background-color: var(--white-dark);
+}
+
+.footer {
+  background: var(--grey-light);
+}
+
+.footer a {
+  color: var(--white-dark);
+}*/

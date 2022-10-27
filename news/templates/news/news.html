@@ -1,20 +1,14 @@
-<div class="container-fluid my-4">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for post in posts %}
-        <div class="col d-flex">
-            <div class="card vh-75 vw-100">
-                <img src="{{ post.imagem_capa.url }}" class="card-img-top img-350" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{ post.titulo | safe }}</h5>
-                    <p class="card-text">{{ post.resumo | slice:":300" | safe }}...</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">{{ posts.0.data_publicacao | safe }}</small>
-                </div>
-            </div>
+<section class="feed">
+    {% for post in posts %}
+    <div class="news">
+        <img src="{{ post.imagem_capa.url }}" alt="" />
+        <a class="game-name">League of Legends</a>
+        <a class="title">{{ post.titulo | safe }}</a>
+        <a class="description">{{ post.resumo | slice:":300" | safe }} </a>
+        <div class="date-author">
+            <a class="date">{{ posts.0.data_publicacao | safe }}</a>
+            <a class="author">Murilo Betoni</a>
         </div>
-        {% endfor %}
-
     </div>
-
-</div>
+    {% endfor %}
+</section>
