@@ -17,7 +17,7 @@ def validou_email(email):
     else:
         return False
 
-@transaction.atomic
+
 def criar_conta(request):
     if request.method == 'POST':
 
@@ -31,7 +31,7 @@ def criar_conta(request):
             email=user.cleaned_data['email'],
             password=user.cleaned_data['password']
         )
-
+        
         perl = Perfil(bio=perfil.cleaned_data['bio'],
                       foto=perfil.cleaned_data['foto'],
                       user=usr)
@@ -61,7 +61,6 @@ def htmx_valida_username(request):
     return HttpResponse(str_template)
 
 
-
 def htmx_valida_senha(request):
 
     context = {'error_pwd': 'As senhas não coincidem', 'st_submit': 'disabled', 'cor': 'red'}
@@ -74,7 +73,6 @@ def htmx_valida_senha(request):
 
     str_template = render_to_string('contas/feedback_form_validation.html', context)
     return HttpResponse(str_template)
-
 
 
 def htmx_valida_email(request):

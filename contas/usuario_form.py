@@ -9,7 +9,7 @@ class UserForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['first_name'].requiredz=True
+        self.fields['first_name'].requiredz = False
         self.fields['last_name'].required = True
         self.fields['username'].required = True
         self.fields['email'].required = True
@@ -29,6 +29,7 @@ class UserForm(ModelForm):
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'password': forms.PasswordInput(attrs={'class': 'form-control'}),
         }
+        
 
 class PerfilForm(ModelForm):
     class Meta:

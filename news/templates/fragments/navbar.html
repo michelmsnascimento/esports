@@ -34,7 +34,29 @@
                 </li>
 
             </ul>
-
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+               <a class="nav-link" href="{% url 'login' %}">
+                   {% if user.socialaccount_set.all.0.get_avatar_url %}
+                       <img src="{{ user.socialaccount_set.all.0.get_avatar_url }}"
+                           class="rounded-circle"
+                           alt="{{user.username}}"
+                            style="height:40px; width:40px">
+                   {% elif user.perfil.foto %}
+                       <img src="{{ user.perfil.foto.url }}"
+                           class="rounded-circle"
+                           alt="{{user.username}}"
+                           style="height:40px; width:40px">
+                   {% else %}
+                       <span>Olá, {{ user.username }}.</span>
+                   {% endif %}
+               </a>
+           </li>
+       {% else %}
+            <li class="nav-item">
+               <a class="nav-link" href="{% url 'login' %}">Login</a>
+           </li>
+       {% endif %}
             <form class="d-flex">
                 <input class="form-control me-1 rounded-pill"
                        type="search"
