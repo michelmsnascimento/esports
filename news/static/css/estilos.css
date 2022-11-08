@@ -1,3 +1,14 @@
+html,
+body,
+ul,
+li,
+p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-family: 'Roboto', sans-serif;
+}
+
 :root {
   /*Neutro*/
   --brand-color: hsl(151, 100%, 50%);
@@ -14,6 +25,19 @@
   --background-white: hsl(0, 1%, 84%);
 
   font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  background: var(--grey-light);
+}
+
+a {
+  text-decoration: none;
+  color: var(--white-dark);
+}
+
+#header-fixed {
+  width: 100%;
 }
 
 .header {
@@ -55,31 +79,31 @@
   font-size: 1.6rem;
 }
 
-#menu {
+.menu {
   display: flex;
   align-items: center;
   margin-left: 1.0rem;
   font-size: 2rem;
 }
 
-#menu li {
+.menu li {
   margin-left: 4.0rem;
 }
 
-#menu li a {
+.menu li a {
   display: block;
   color: var(--brand-color-dark);
 }
 
-#menu li #inicio {
+.menu li #inicio {
   color: var(--brand-color);
 }
 
-#menu li a:hover {
+.menu li a:hover {
   color: var(--brand-color);
 }
 
-#menu button {
+.menu button {
   display: block;
   background: var(--brand-color);
   border-radius: 20px;
@@ -105,32 +129,25 @@
 
 .item1 {
   flex: none;
-  padding-right: 5rem;
+  padding-right: 4rem;
 }
 
 .item6 {
   flex: none;
-  padding-left: 5rem;
+  padding-left: 4rem;
 }
 
 .item2,  .item3, .item4, .item5 {
   flex: none;
-  padding: 0 5rem;
+  padding: 0 4rem;
 }
 
-#btn-mobile {
+.btn-menu {
   display: none;
 }
 
 #items::-webkit-scrollbar {
   display: none;
-}
-
-.horizontal{
-  border: 0;
-  height: .6rem;
-  margin: 0;
-  background-image: linear-gradient(to right, transparent, var(--brand-color), transparent); 
 }
 
 .feed {
@@ -145,7 +162,8 @@
   background: var(--black);
   max-width: 40rem;
   margin: 0 1rem 3rem 1rem;
-  grid-gap: 20px;
+  grid-gap: 2rem;
+  align-content: space-between;
 }
 
 .feed img {
@@ -153,11 +171,17 @@
   height: 18.4rem; 
   object-fit:cover;
   object-position: 50%;
+  padding-bottom: 2rem;
 }
 
 .feed .game-name {
   font-size: 1.6rem;
   font-weight: 100;
+}
+
+.feed .title-description {
+  display: grid;
+  grid-gap: 2rem;
 }
 
 .feed .title {
@@ -201,7 +225,7 @@
   display: flex;
   background: var(--black);
   min-height: 33.4rem;
-  padding: 3rem 13rem 3rem 13rem;
+  padding: 6rem 13rem 3rem 13rem;
   justify-content: center;
 }
 
@@ -260,7 +284,7 @@
     max-width: 1.5rem;
   }
   
-  #menu {
+  .menu {
     position: absolute;
     display: grid;
     grid-template-columns: 1fr;
@@ -268,21 +292,20 @@
     height: 300rem;
     top: 10rem;
     padding-bottom: 2rem;
+    padding-right: 1rem;
     right: 0;
+    align-content: space-around;
     align-items: center;
     justify-items: center;
-    justify-content: space-evenly;
     background: var(--grey-dark);
     transition: .4s;
     visibility: hidden;
     overflow-y: hidden;
   }
 
-  #nav.active #menu{
+  .nav.active .menu{
     transition: .8s;
-    width: 100vw;
     height: 81vh;
-    position: fixed;
     top: 10rem;
     left: -15px;
     z-index: 2000;
@@ -291,11 +314,15 @@
     overflow-y: auto;
   }
 
-  #menu button {
-    margin: 0.2rem .5rem 0 0;
+  .nav.active .menu, #header-fixed {
+    position: fixed;
   }
 
-  #btn-mobile {
+  .menu button {
+    margin-left: 4rem;
+  }
+
+  .btn-menu {
     display: flex;
     padding: .5rem 1rem;
     border: none;
@@ -304,12 +331,12 @@
     gap: .5rem;
   }
 
-  #hamburguer {
+  .hamburguer {
     border-top: .2rem solid var(--brand-color);
     width: 2rem;
   }
 
-  #hamburguer::before {
+  .hamburguer::before {
     content: '';
     display: flex;
     width: 2rem;
@@ -320,7 +347,7 @@
     position: relative;
   }
 
-  #hamburguer::after {
+  .hamburguer::after {
     content: '';
     display: flex;
     width: 2rem;
@@ -331,17 +358,21 @@
     position: relative;
   }
 
-  #nav.active #hamburguer {
+  .nav.active .hamburguer {
     border-top-color: transparent;
   }
 
-  #nav.active #hamburguer::before {
+  .nav.active .hamburguer::before {
     transform: rotate(135deg);
   }
 
-  #nav.active #hamburguer::after {
+  .nav.active .hamburguer::after {
     transform: rotate(-135deg);
     top: -0.7rem;
+  }
+
+  #menu-games { 
+    padding-top: 10rem;
   }
   
   #items {
@@ -428,7 +459,7 @@
 
 /******** Mobile ********/
 
-@media (max-width: 600px) {
+@media (max-width: 620px) {
   .header {
     padding: 2rem 3rem;
   }
@@ -481,13 +512,26 @@
   .feed {
     grid-template-columns: 1fr;
     justify-items: center;
-    padding: 2rem;
+    padding: 6rem 2rem 2rem 2rem;
   }
 
   .feed > div {
     max-width: 41.8rem;
     margin-left: 0;
     margin-right: 0;
+  }
+
+  .footer {
+    padding: 2rem;
+  }
+
+  .footer .copyright img {
+    width: 9rem;
+    height: 5rem;
+  }
+
+  .footer .copyright a {
+    font-size: 1.2rem;
   }
 }
 

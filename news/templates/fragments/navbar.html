@@ -1,13 +1,12 @@
-<img
-    class="logo"
-    src="static/images/static/img/logos-games/logo-prottoesports.svg"
-/>
+{% load static %}
+
+<img class="logo" src="{% static 'img/logos-games/logo-prottoesports.svg' %}" />
 <div class="search-box">
     <input type="text" class="search-text" placeholder="Pesquisar" />
     <a class="search-btn">
         <img
             class="long-search"
-            src="/img/icons/search.png"
+            src="{% static 'img/icons/search.png' %}"
             alt="Search Button"
         />
     </a>
@@ -23,14 +22,14 @@
         <span id="hamburguer"></span>
     </button>
     <ul id="menu" role="menu">
-        <li><a id="inicio" href="./index.html">Início</a></li>
+        <li><a id="inicio" href="{% url 'home' %}">Início</a></li>
         <li>
-            <a id="eSports" href="/news/templates/news/esports.html">eSports</a>
+            <a id="eSports" href="{% url 'esports' %}">eSports</a>
         </li>
         <li>
-            <a id="torneios" href="./torneios.html">Torneios</a>
+            <a id="torneios" href="{% url 'torneios' %}">Torneios</a>
         </li>
-        <button>Login</button>
+        <button href="{% url 'login' %}">Login</button>
     </ul>
 </nav>
 
