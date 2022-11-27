@@ -5,11 +5,14 @@
     <title>Post Detail</title>
 </head>
 <body>
-    <h1></h1>
-    <h3></h3>
+    <h1>{{ posts.titulo }}</h1>
+    <h3>{{ posts.conteudo }} - {{ posts.autor }} </h3>
 
     <p>
-    
+    {% for topico in post.topico_set.all %}
+        {{ topico.conteudo|safe }}
+        <br />
+    {% endfor %}
     </p>
 
 </body>
