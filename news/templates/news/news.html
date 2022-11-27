@@ -4,7 +4,7 @@
         <img src="{{ post.imagem_capa.url }}" alt="" />
         <a class="game-name">League of Legends</a>
         <a class="title">{{ post.titulo | safe }}</a>
-        <a class="description">{{ post.resumo | slice:":300" | safe }} </a>
+        <a class="description">{{ post.topico_set.first.conteudo | slice:":300" | safe }} </a>
         <div class="date-author">
             <a class="date">{{ post.data_publicacao | safe }}</a>
             <a class="author">Murilo Betoni</a>

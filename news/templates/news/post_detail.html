@@ -9,7 +9,10 @@
     <h3>{{ posts.subtitulo }} - {{ posts.autor }} </h3>
 
     <p>
-        {{ posts.conteudo|safe }}
+    {% for topico in post.topico_set.all %}
+        {{ topico.conteudo|safe }}
+        <br />
+    {% endfor %}
     </p>
 
 </body>
