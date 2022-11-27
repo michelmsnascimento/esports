@@ -18,7 +18,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['protto-esports.herokuapp.com']
+ALLOWED_HOSTS = ['git.heroku.com/protto-esports.git']
 
 
 # Application definition
