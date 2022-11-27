@@ -1,8 +1,8 @@
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
-load_dotenv()
+from decouple import config
+from dj_database_url import parse as dburl
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,13 +12,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = str(os.getenv('SECRET_KEY'))
+SECRET_KEY = config('SECRET_KEY')
 #SECRET_KEY = 'django-insecure-38cg_wpya&hteo%lsscqb-$@r&$%#t%f384mxuf0s-z_7h(het'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['protto-esports.herokuapp.com']
 
 
 # Application definition
@@ -87,19 +87,23 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-   'default': {
-   'ENGINE': 'django.db.backends.postgresql',
-          'NAME': 'esports',
-          'USER': 'postgres',
-          'PASSWORD': 'root',
-          'HOST': '127.0.0.1',
-          'PORT': '5432',
-          'OPTIONS': {
-              'options': '-c search_path=esports_db'
-                },
-     }
-}
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+
+DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
+
+# DATABASES = {
+#   'default': {
+#   'ENGINE': 'django.db.backends.postgresql',
+ #         'NAME': 'esports',
+ #         'USER': 'postgres',
+ #         'PASSWORD': 'root',
+#          'HOST': '127.0.0.1',
+#          'PORT': '5432',
+#          'OPTIONS': {
+#              'options': '-c search_path=esports_db'
+#                },
+#     }
+#}
 
 
 # Password validation
@@ -149,7 +153,10 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL = 'home'
+
 LOGOUT_REDIRECT_URL = 'login'
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
