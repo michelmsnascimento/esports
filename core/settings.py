@@ -94,9 +94,9 @@ DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dbur
 # DATABASES = {
 #   'default': {
 #   'ENGINE': 'django.db.backends.postgresql',
- #         'NAME': 'esports',
- #         'USER': 'postgres',
- #         'PASSWORD': 'root',
+#         'NAME': 'esports',
+#         'USER': 'postgres',
+#         'PASSWORD': 'root',
 #          'HOST': '127.0.0.1',
 #          'PORT': '5432',
 #          'OPTIONS': {
