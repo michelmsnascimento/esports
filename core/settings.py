@@ -91,7 +91,7 @@ default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
 DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
 
-DATABASES = {
+'''DATABASES = {
    'default': {
    'ENGINE': 'django.db.backends.postgresql',
          'NAME': 'esports',
@@ -103,7 +103,7 @@ DATABASES = {
               'options': '-c search_path=esports_db'
                 },
      }
-}
+}'''
 
 
 # Password validation
