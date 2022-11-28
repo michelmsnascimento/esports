@@ -91,19 +91,19 @@ default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
 DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
 
-DATABASES = {
-   'default': {
-   'ENGINE': 'django.db.backends.postgresql',
-          'NAME': 'esports',
-          'USER': 'postgres',
-          'PASSWORD': 'root',
-          'HOST': '127.0.0.1',
-          'PORT': '5432',
-          'OPTIONS': {
-              'options': '-c search_path=esports_db'
-                },
-     }
-}
+# DATABASES = {
+#   'default': {
+#   'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'esports',
+#         'USER': 'postgres',
+#         'PASSWORD': 'root',
+#          'HOST': '127.0.0.1',
+#          'PORT': '5432',
+#          'OPTIONS': {
+#              'options': '-c search_path=esports_db'
+#                },
+#     }
+#}
 
 
 # Password validation
@@ -165,12 +165,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # google config
 
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-#EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_HOST_USER = str(os.getenv('EMAIL_HOST_USER'))
-#EMAIL_HOST_PASSWORD = str(os.getenv('EMAIL_HOST_PASSWORD'))
-#EMAIL_PORT = 587
-#EMAIL_USE_TLS = True
-#DEFAULT_FROM_EMAIL = 'default from email'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'default from email'
 
 SITE_ID = 1
