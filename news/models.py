@@ -7,18 +7,14 @@ from torneios.models import Game
 
 
 class Post(models.Model):
+    autor = models.CharField(max_length=50)
     titulo = models.CharField(max_length=255)
     game = models.ForeignKey(Game,  on_delete=models.CASCADE, null=True)
     imagem_capa = models.ImageField(null=True, blank=True, upload_to='static/news/')
     data_publicacao = models.DateTimeField(timezone.now())
     def __str__(self):
         return self.titulo
-class Autor(models.Model):
-    nome = models.CharField(max_length=50)
-    funcao = models.CharField(max_length=50)
-    posts = models.ManyToManyField(Post)
-    def __str__(self):
-        return self.nome
+
 class Tag(models.Model):
     nome = models.CharField(max_length=50)
     posts = models.ManyToManyField(Post) 
