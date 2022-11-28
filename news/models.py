@@ -5,8 +5,13 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from contas.models import Perfil
 from torneios.models import Game
 
+class Autor(models.Model):
+    nome = models.CharField(max_length=50)
+    funcao = models.CharField(max_length=50)
+    def __str__(self):
+        return self.nome
 class Post(models.Model):
-    autor = models.ForeignKey(Perfil,  on_delete=models.CASCADE, null=True)
+    autor = models.ForeignKey(Autor,  on_delete=models.CASCADE, null=True)
     titulo = models.CharField(max_length=255)
     game = models.ForeignKey(Game,  on_delete=models.CASCADE, null=True)
     imagem_capa = models.ImageField(null=True, blank=True, upload_to='static/news/')

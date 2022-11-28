@@ -8,7 +8,8 @@ class Perfil(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     bio = models.TextField(blank=True, null=True, max_length=255)
     foto = models.ImageField(blank=True, null=True, default='', upload_to='static/imagens')
-
+    def __str__(self):
+        return self.user
 
 
 @receiver(post_save, sender=User)
